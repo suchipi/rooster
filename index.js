@@ -34,11 +34,17 @@ const server = http.createServer(async (req, res) => {
       }
 
       try {
-        const results = runCmd("etherwake", [
-          "-i",
-          settings.interface,
-          params.get("mac"),
-        ]);
+        let results;
+        if (process.platform === "darwin") {
+          results = runCmd("wakeonlan", [params.get("mac")]);
+        } else {
+          results = runCmd("etherwake", [
+            "-i",
+            settings.interface,
+            params.get("mac"),
+          ]);
+        }
+
         if (results.status === 0) {
           res.statusCode = 200;
           res.end(
