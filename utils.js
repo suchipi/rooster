@@ -44,8 +44,10 @@ function renderTemplate(filepath, data) {
   return content;
 }
 
-function runCmd(cmd) {
-  return child_process.execSync(cmd, "utf-8");
+function runCmd(cmd, args) {
+  return child_process.spawnSync(cmd, args, {
+    encoding: "utf-8",
+  });
 }
 
 module.exports = {
