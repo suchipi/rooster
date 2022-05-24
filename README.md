@@ -19,6 +19,12 @@ You can install it on a small server (eg Raspberry Pi) that you always leave on,
   - Run Rooster by `cd`ing to the folder you extracted Rooster into and then running `npm start`
   - Pick your device from the drop-down and click "Send Wake-On-LAN Packet".
 
+By default, the server runs on port 8080. If you want to run it on a different port, you can set the environment variable `PORT` to a number, like so:
+
+```
+env PORT=1234 npm start
+```
+
 ## Troubleshooting
 
 ### The computer doesn't wake up
