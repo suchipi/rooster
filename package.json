@@ -1,0 +1,27 @@
+{
+  "name": "@suchipi/rooster",
+  "version": "0.1.0",
+  "description": "Wake-on-LAN packet sender web UI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "ethernet",
+    "wake",
+    "on",
+    "lan",
+    "wol",
+    "etherwake",
+    "magic",
+    "packet",
+    "mac",
+    "address"
+  ],
+  "author": "Lily Scott <me@suchipi.com>",
+  "license": "MIT",
+  "repository": "suchipi/rooster",
+  "devDependencies": {
+    "@types/node": "^17.0.35"
+  }
+}

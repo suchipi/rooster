@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rooster Wake-On-LAN Tool</title>
+
+    <style>
+      li {
+        margin: 0.5em 0;
+      }
+
+      .formline {
+        margin: 0.5em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Rooster</h1>
+
+    <form action="/wake" method="POST">
+      <div class="formline">
+        <label for="mac">Device to wake</label>
+        <select name="mac" id="mac">
+          %%DEVICE_OPTIONS%%
+        </select>
+      </div>
+      <div class="formline">
+        <input type="submit" value="Send Wake-On-LAN Packet" />
+      </div>
+    </form>
+
+    <a href="https://github.com/suchipi/rooster" target="_blank"
+      >Rooster GitHub Repo</a
+    >
+  </body>
+</html>
