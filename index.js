@@ -34,7 +34,11 @@ const server = http.createServer(async (req, res) => {
       }
 
       try {
-        runCmd(`etherwake -i ${settings.interface} ${params.get("mac")}`);
+        runCmd(
+          `etherwake -i ${settings.interface} ${JSON.stringify(
+            params.get("mac")
+          )}`
+        );
         res.statusCode = 200;
         res.end(
           "Packet sent! If its BIOS is configured to accept Wake-On-LAN packets, it should boot up shortly..."
