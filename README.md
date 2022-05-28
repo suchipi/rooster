@@ -56,6 +56,19 @@ By default, the server runs on port 8080. If you want to run it on a different p
 env PORT=1234 npm start
 ```
 
+## Enabling authentication
+
+To deter random people on the internet from turning on your computer, you can make Rooster require a username and password. To do so, make the following changes to `settings.json` (in the folder where Rooster is):
+
+- Change `requireAuthentication` to `true`.
+- Change `username` to your desired username.
+- Change `password` to your desired password.
+- If Rooster is running, press Ctrl+C to stop it, then run it again.
+
+Rooster uses [HTTP Basic Auth](https://datatracker.ietf.org/doc/html/rfc7617) for login, which is insecure unless used over HTTPS. However, even if you don't have HTTPS set up, Basic Auth may be sufficient for your needs, as an attacker would need to intercept your HTTP request to obtain your credentials.
+
+If you want to use a different authentication scheme, you can instead put Rooster behind a reverse proxy, like nginx.
+
 ## Troubleshooting
 
 ### The computer doesn't wake up

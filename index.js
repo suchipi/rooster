@@ -25,6 +25,27 @@ const server = http.createServer(async (req, res) => {
     }
 
     case "POST /wake": {
+      if (settings.requireAuthentication) {
+        const auth = req.headers.authorization;
+
+        const b64Creds = (auth || "").replace(/^Basic /, "");
+        const creds = Buffer.from(b64Creds, "base64").toString("utf-8");
+
+        if (
+          !auth ||
+          !auth.startsWith("Basic ") ||
+          creds !== `${settings.username}:${settings.password}`
+        ) {
+          res.statusCode = 401;
+          res.setHeader(
+            "WWW-Authenticate",
+            `Basic realm="Send Wake-On-LAN packets"`
+          );
+          res.end("Please authenticate");
+          return;
+        }
+      }
+
       const body = await readStreamToString(req);
       const params = new URLSearchParams(body);
 
